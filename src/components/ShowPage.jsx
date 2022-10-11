@@ -2,7 +2,7 @@ import React from 'react';
 import {TextField , Typography, Grid,Button} from '@mui/material';
 import styles from '../styles/Form1.module.css';
 
-function ShowPage({decPage,data,saveData}) {
+function ShowPage({decPage,data,postForm}) {
   const typoSx = {
     margin: '0.5rem',
     color:'#628E90',
@@ -83,7 +83,7 @@ const btnSx2={
       </Grid>
       <div className={styles.btnDiv}>
         <Button variant="contained" size='medium' sx={btnSx2} onClick={decPage}>PREVIOUS</Button>
-        <Button variant="contained" size='medium' sx={btnSx3} onClick={saveData}>SUBMIT</Button>
+        <Button variant="contained" size='medium' sx={btnSx3} onClick={postForm}>SUBMIT</Button>
       </div>
     </form>
   )

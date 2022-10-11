@@ -1,4 +1,4 @@
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 import {CssBaseline, Typography, AppBar, createTheme, ThemeProvider, Toolbar,Box, List
 ,ListItemButton, ListItemIcon, ListItemText, ListSubheader, Grid} from '@mui/material';
 import Personalinfo from './components/Personalinfo';
@@ -8,6 +8,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import SchoolIcon from '@mui/icons-material/School';
 import ShowPage from './components/ShowPage';
 import DescriptionIcon from '@mui/icons-material/Description';
+import Axios from 'axios';
 
 
 function App() {
@@ -29,8 +30,15 @@ function App() {
       Percent:''
     })
   const[page,setPage] = useState(0);
-  const saveData = async () =>{
-    setFormData([...formData,data]);
+  useEffect(()=>{
+    Axios.get("http://localhost:3001/getForm").then((response)=>{
+    setFormData(response.data)
+  },[])})
+  const postForm = () =>{
+    // setFormData([...formData,data]);
+    Axios.post("http://localhost:3001/postForm",data).then((response)=>{
+      setFormData([...formData,data])
+    })
     console.log(formData);
     setData({});
   }
@@ -46,7 +54,7 @@ function App() {
     } else if(page===1){
       return <Education decPage={decPage} data={data} setData={setData} incPage={incPage}/>;
     } else if (page===2){
-      return <ShowPage  decPage={decPage} data={data} saveData={saveData}/>
+      return <ShowPage  decPage={decPage} data={data} postForm={postForm}/>
     }
   }
   const boxSx = {
