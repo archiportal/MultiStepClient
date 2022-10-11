@@ -7,6 +7,7 @@ import EventNoteIcon from '@mui/icons-material/EventNote';
 import HomeIcon from '@mui/icons-material/Home';
 import SchoolIcon from '@mui/icons-material/School';
 import ShowPage from './components/ShowPage';
+import Confirmed from './components/Confirmed';
 import DescriptionIcon from '@mui/icons-material/Description';
 import Axios from 'axios';
 
@@ -41,6 +42,7 @@ function App() {
     })
     console.log(formData);
     setData({});
+    setPage(page+1);
   }
   const incPage=()=>{
     setPage(page+1);
@@ -55,6 +57,8 @@ function App() {
       return <Education decPage={decPage} data={data} setData={setData} incPage={incPage}/>;
     } else if (page===2){
       return <ShowPage  decPage={decPage} data={data} postForm={postForm}/>
+    } else if (page===3){
+      return <Confirmed setPage={setPage}/>
     }
   }
   const boxSx = {
