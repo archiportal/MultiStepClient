@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography , Button } from '@mui/material'
+import { Typography , Button} from '@mui/material'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 function Confirmed({setPage}) {
@@ -7,19 +7,22 @@ function Confirmed({setPage}) {
     setPage(0);
   }
   const typoSx = {
-    marginTop : "5rem",
-    marginBottom : "2rem",
+    marginBottom : "1rem",
   }
-  const buttonSx = {
-    left : "14rem",
-  }
+  const btnSx={
+    bgcolor:'#54BAB9',
+    '&:hover':{
+        bgcolor:'#97D2EC',
+    },
+    marginTop : '1rem',
+}
   return (
     <>
     <Typography variant='h5' align='center' sx={typoSx}>
       Your submission was successful. Thank you. 
-      <CheckCircleOutlineIcon />
+    <CheckCircleOutlineIcon />
     </Typography>
-    <Button variant="contained" size='large' sx={buttonSx} onClick={clicked}>BACK</Button>
+    <Button variant="contained" size='large' sx={btnSx} onClick={clicked}>BACK</Button>
     </>
   )
 }

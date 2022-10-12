@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextField , Typography, Grid, Button } from '@mui/material';
+import {TextField , Typography, Grid, Button, Box } from '@mui/material';
 import styles from '../styles/Form1.module.css';
 
 function Personalinfo({incPage, data, setData}) {
@@ -27,7 +27,6 @@ function Personalinfo({incPage, data, setData}) {
         '&:hover':{
             bgcolor:'#97D2EC',
         },
-        left:'14rem',
         marginTop : '1rem',
     }
 
@@ -60,7 +59,9 @@ function Personalinfo({incPage, data, setData}) {
         value={data.Nation} onChange={(e)=>setData({...data, Nation:e.target.value})}/>
         </Grid>
         </Grid>
+        <Box width="100%" display="flex" justifyContent="flex-end">
         <Button variant="contained" size='large' sx={btnSx} onClick={onClick}>NEXT</Button>
+        </Box>
     </form>
   )
 }

@@ -32,17 +32,24 @@ function App() {
     })
   const[page,setPage] = useState(0);
   useEffect(()=>{
-    Axios.get("http://localhost:3001/getForm").then((response)=>{
-    setFormData(response.data)
-  },[])})
+    try {
+      Axios.get("http://localhost:3001/getForm").then((response)=>{
+      setFormData(response.data)
+    })} catch (error) {
+      console.log(error);
+    }
+  },[])
   const postForm = () =>{
     // setFormData([...formData,data]);
-    Axios.post("http://localhost:3001/postForm",data).then((response)=>{
-      setFormData([...formData,data])
-    })
-    console.log(formData);
-    setData({});
-    setPage(page+1);
+    try{
+      Axios.post("http://localhost:3001/postForm",data).then((response)=>{
+      setFormData([...formData,data])})
+      console.log(formData);
+      setData({});
+      setPage(page+1);
+    } catch(error){
+      console.log(error);
+    }
   }
   const incPage=()=>{
     setPage(page+1);
@@ -62,8 +69,9 @@ function App() {
     }
   }
   const boxSx = {
-      width:'600px',
-      height:'730px',
+      display:'flex',
+      width:'55%',
+      height:'90%',
       bgcolor:'#EAF6F6',
       padding:'2rem',
       margin:'2rem',
@@ -96,7 +104,7 @@ function App() {
       <EventNoteIcon fontSize="large"/>
       </Toolbar>
     </AppBar>
-    <Grid container spacing={2}>
+    <Grid container spacing="2">
     <Grid item xs={3}>
     <List
       sx={{height:'100vh',width: '100%', maxWidth: 360, bgcolor: 'background.paper', 

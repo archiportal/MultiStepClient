@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextField , Typography, Grid,Button} from '@mui/material';
+import {TextField , Typography, Grid, Button, Box} from '@mui/material';
 import styles from '../styles/Form1.module.css';
 
 function Education({decPage,data,setData,incPage}) {
@@ -17,21 +17,12 @@ function Education({decPage,data,setData,incPage}) {
         margin: '0.5rem',
         color:'#628E90',
     }
-    const btnSx3={
+
+      const btnSx={
         bgcolor:'#54BAB9',
         '&:hover':{
             bgcolor:'#97D2EC',
         },
-        left:'19.2rem',
-        marginTop : '1rem',
-      }
-      
-      const btnSx2={
-        bgcolor:'#54BAB9',
-        '&:hover':{
-            bgcolor:'#97D2EC',
-        },
-        left:'0rem',
         marginTop : '1rem',
       }
       const onClick=()=>{
@@ -74,10 +65,18 @@ function Education({decPage,data,setData,incPage}) {
         value={data.Percent} onChange={(e)=>setData({...data, Percent:e.target.value})}/>
         </Grid>
         </Grid>
-        <div className={styles.btnDiv}>
-        <Button variant="contained" size='large' sx={btnSx2} onClick={decPage}>PREVIOUS</Button>
-        <Button variant="contained" size='large' sx={btnSx3} onClick={onClick}>NEXT</Button>
-        </div>
+        <Grid container spacing={2}>
+        <Grid item xs={6}>
+        <Box display="flex" justifyContent="flex-start">
+        <Button variant="contained" size='large' sx={btnSx} align='left' onClick={decPage}>PREVIOUS</Button>
+        </Box>
+        </Grid>
+        <Grid item xs={6}>
+        <Box display="flex" justifyContent="flex-end">
+        <Button variant="contained" size='large' sx={btnSx} align='right' onClick={onClick}>NEXT</Button>
+        </Box>
+        </Grid>
+        </Grid>
     </form>
   )
 }

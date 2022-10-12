@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextField , Typography, Grid,Button} from '@mui/material';
+import {TextField, Typography, Grid, Button, Box} from '@mui/material';
 import styles from '../styles/Form1.module.css';
 
 function ShowPage({decPage,data,postForm}) {
@@ -16,21 +16,11 @@ const fldSx ={
   margin : '1rem',
   width : '100%',
 }
-const btnSx3={
+const btnSx={
   bgcolor:'#54BAB9',
   '&:hover':{
       bgcolor:'#97D2EC',
   },
-  left:'21rem',
-  marginTop : '1rem',
-}
-
-const btnSx2={
-  bgcolor:'#54BAB9',
-  '&:hover':{
-      bgcolor:'#97D2EC',
-  },
-  left:'0rem',
   marginTop : '1rem',
 }
   return (
@@ -81,10 +71,18 @@ const btnSx2={
       <TextField disabled d="outlined-disabled" label="PERCENTAGE" value={data.Percent} size='small' sx={fldSx2}/>
       </Grid>
       </Grid>
-      <div className={styles.btnDiv}>
-        <Button variant="contained" size='medium' sx={btnSx2} onClick={decPage}>PREVIOUS</Button>
-        <Button variant="contained" size='medium' sx={btnSx3} onClick={postForm}>SUBMIT</Button>
-      </div>
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+        <Box display="flex" justifyContent="flex-start">
+        <Button variant="contained" size='medium' sx={btnSx} onClick={decPage}>PREVIOUS</Button>
+        </Box>
+        </Grid>
+        <Grid item xs={6}>
+        <Box display="flex" justifyContent="flex-end">
+        <Button variant="contained" size='medium' sx={btnSx} onClick={postForm}>SUBMIT</Button>
+        </Box>
+        </Grid>
+      </Grid>
     </form>
   )
 }
