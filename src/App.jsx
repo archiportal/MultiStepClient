@@ -1,18 +1,12 @@
-import {React, useState, useEffect} from 'react'
-import {CssBaseline, Typography, AppBar, createTheme, ThemeProvider, Toolbar,Box, List
-,ListItemButton, ListItemIcon, ListItemText, ListSubheader, Grid} from '@mui/material';
-import Personalinfo from './components/Personalinfo';
-import Education from './components/Education';
+import {React,useState,useEffect} from 'react';
+import {ThemeProvider,createTheme,AppBar,Button,CssBaseline,Toolbar,Typography} from '@mui/material';
 import EventNoteIcon from '@mui/icons-material/EventNote';
-import HomeIcon from '@mui/icons-material/Home';
-import SchoolIcon from '@mui/icons-material/School';
-import ShowPage from './components/ShowPage';
-import Confirmed from './components/Confirmed';
-import DescriptionIcon from '@mui/icons-material/Description';
+import HomePage from './components/HomePage';
+import Records from './components/Records';
 import Axios from 'axios';
 
-
 function App() {
+  const[page,setPage] = useState(0);
   const[formData,setFormData] = useState([])
   const[data,setData]=useState(
     {
@@ -30,59 +24,32 @@ function App() {
       Cgpa:'',
       Percent:''
     })
-  const[page,setPage] = useState(0);
-  useEffect(()=>{
-    try {
-      Axios.get("http://localhost:3001/getForm").then((response)=>{
-      setFormData(response.data)
-    })} catch (error) {
-      console.log(error);
-    }
-  },[])
-  const postForm = () =>{
-    // setFormData([...formData,data]);
-    try{
-      Axios.post("http://localhost:3001/postForm",data).then((response)=>{
-      setFormData([...formData,data])})
-      console.log(formData);
-      setData({});
-      setPage(page+1);
-    } catch(error){
-      console.log(error);
-    }
-  }
-  const incPage=()=>{
-    setPage(page+1);
-  }
-  const decPage=()=>{
-    setPage(page-1);
-  }
-  const PageDisplay=()=>{
-    if(page===0){
-      return <Personalinfo incPage={incPage} data={data} setData={setData}/>;
-    } else if(page===1){
-      return <Education decPage={decPage} data={data} setData={setData} incPage={incPage}/>;
-    } else if (page===2){
-      return <ShowPage  decPage={decPage} data={data} postForm={postForm}/>
-    } else if (page===3){
-      return <Confirmed setPage={setPage}/>
-    }
-  }
-  const boxSx = {
-      display:'flex',
-      width:'55%',
-      height:'90%',
-      bgcolor:'#EAF6F6',
-      padding:'2rem',
-      margin:'2rem',
-      borderRadius:2,
-      flexDirection: 'column',
-      flexWrap:'wrap',
-      justifyContent: 'center',
-      alignItems: 'center',
-      boxShadow:2,
-  } 
 
+    useEffect(()=>{
+      try {
+        Axios.get("http://localhost:3001/getForm").then((response)=>{
+        setFormData(response.data)
+      })} catch (error) {
+        console.log(error);
+      }
+    },[])
+    useEffect(()=>{
+      console.log(formData);
+    },[formData])
+
+    const postForm = () =>{
+      // setFormData([...formData,data]);
+      try{
+        Axios.post("http://localhost:3001/postForm",data).then((response)=>{
+        setFormData([...formData,data])})
+        setData({});
+        setPage(page+1);
+      } catch(error){
+        console.log(error);
+      }
+    }
+    
+    
   const theme = createTheme({
     palette: {
       background: {
@@ -90,6 +57,10 @@ function App() {
       },
     },
   });
+  const btnSx = {
+    margin : "0em 2em 0em 2em",
+  }
+  const[record,setRecord]=useState(false);
   return (
     <>
     <ThemeProvider theme={theme}>
@@ -98,59 +69,19 @@ function App() {
       bgcolor:'#54BAB9',
     }}>
       <Toolbar>
+      <EventNoteIcon fontSize="large"/>
       <Typography variant='h4' marginTop={2} marginBottom={2}>
         FormAtic
       </Typography>
-      <EventNoteIcon fontSize="large"/>
+      <Button color="inherit" size="large" sx={btnSx} onClick={()=>{setRecord(false)}}>HOMEPAGE</Button>
+      <Button color="inherit" size="large" onClick={()=>{setRecord(true)}}>RECORDS</Button>
       </Toolbar>
-    </AppBar>
-    <Grid container spacing="2">
-    <Grid item xs={3}>
-    <List
-      sx={{height:'100vh',width: '100%', maxWidth: 360, bgcolor: 'background.paper', 
-      margin:'0.25rem 1rem 1rem 0rem', boxShadow:'2'}}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" id="nested-list-subheader" sx={{
-          fontSize:'1.2em'
-        }}>
-          Navigate
-        </ListSubheader>
-      }
-    >
-      <ListItemButton onClick={()=>{
-        setPage(0);}} 
-        sx={{ bgcolor:(page===0)?'#EAF6F6':'background.paper',}}>
-        <ListItemIcon>
-          <HomeIcon />
-        </ListItemIcon>
-        <ListItemText primary="PERSONAL INFORMATION"/>
-      </ListItemButton>
-      <ListItemButton onClick={()=>{
-        setPage(1);}} 
-        sx={{ bgcolor:(page===1)?'#EAF6F6':'background.paper',}}>
-        <ListItemIcon>
-          <SchoolIcon />
-        </ListItemIcon>
-        <ListItemText primary="EDUCATION DETAILS" />
-      </ListItemButton>
-      <ListItemButton onClick={()=>{
-        setPage(2);}} 
-        sx={{ bgcolor:(page===2)?'#EAF6F6':'background.paper',}}>
-        <ListItemIcon>
-          <DescriptionIcon />
-        </ListItemIcon>
-        <ListItemText primary="PREVIEW"/>
-      </ListItemButton>
-    </List>
-    </Grid>
-    <Grid item xs={9}>
-    <Box component='div' sx={boxSx}>
-    {PageDisplay()}
-    </Box>
-    </Grid>
-    </Grid>
+      </AppBar>
+    {
+      record?(<Records formData={formData}/>):
+      (<HomePage formData={formData} setFormData={setFormData}
+      data={data} setData={setData} postForm={postForm} page={page} setPage={setPage}/>)
+    }
     </ThemeProvider>
     </>
   )

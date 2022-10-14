@@ -14,7 +14,7 @@ function Education({decPage,data,setData,incPage}) {
         right:'1rem'
     }
     const typoSx = {
-        margin: '0.5rem',
+        margin: '0.2em',
         color:'#628E90',
     }
 

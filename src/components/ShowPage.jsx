@@ -4,7 +4,7 @@ import styles from '../styles/Form1.module.css';
 
 function ShowPage({decPage,data,postForm}) {
   const typoSx = {
-    margin: '0.5rem',
+    margin: '0.1em',
     color:'#628E90',
 }
 const fldSx2 ={

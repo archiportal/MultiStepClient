@@ -7,18 +7,18 @@ function Personalinfo({incPage, data, setData}) {
         incPage();
     }
     const fldSx ={
-        margin : '1rem',
+        margin : '1em',
         width : '100%',
     }
 
     const fldSx2 ={
-        margin : '1rem',
+        margin : '1em',
         width : '100%',
         right:'1rem'
     }
 
     const typoSx = {
-        margin: '0.5rem',
+        margin: '0.2em',
         color:'#628E90',
     }
 
