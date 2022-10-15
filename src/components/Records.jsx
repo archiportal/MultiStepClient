@@ -1,8 +1,40 @@
-import React from 'react'
+import { Button, Typography } from '@mui/material';
+import { Box } from '@mui/system';
+import React from 'react';
+import styles from '../styles/Container.module.css';
+import Record from './Record';
 
 function Records({formData}) {
+  const boxSx = {
+    width:'100%',
+    height:'100%',
+    display:'flex',
+    flexDirection : 'column',
+    alignItems:'center',
+    justifyContents:'center',
+  }
+
   return (
-    <div>Records</div>
+    <Box sx={boxSx} >
+      <Typography variant='h2' fontFamily='Segoe UI' color='#628E90' margin='1rem'>
+        RECORDS
+      </Typography>
+      {formData.map((user)=>{
+        return(
+        <div>
+          <div className={styles.divInside}>
+          <Box display="flex" justifyContent="center" className={styles.divText}>
+          <h2>Name : {user.FirstName} {user.LastName}</h2>
+          </Box>
+          <Box display="flex" justifyContent="center" className={styles.divButton}>
+          <Button variant="contained" size='small'>
+            View
+          </Button>
+          </Box>
+          </div>
+        </div>
+        )})}
+    </Box>
   )
 }
 

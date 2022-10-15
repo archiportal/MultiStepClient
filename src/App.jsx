@@ -7,11 +7,13 @@ import Axios from 'axios';
 
 function App() {
   const[page,setPage] = useState(0);
+  const[record,setRecord]=useState(false);
   const[formData,setFormData] = useState([])
   const[data,setData]=useState(
     {
       FirstName:'',
       LastName:'',
+      Password:'',
       Address:'',
       Email:'',
       Mobile:'',
@@ -49,7 +51,6 @@ function App() {
       }
     }
     
-    
   const theme = createTheme({
     palette: {
       background: {
@@ -57,10 +58,16 @@ function App() {
       },
     },
   });
+  
   const btnSx = {
-    margin : "0em 2em 0em 2em",
+    bgcolor:(!record)?'#18978F':'inherit',
+    margin : "0em 1em 0em 1em",
   }
-  const[record,setRecord]=useState(false);
+
+  const btnSx2 = {
+    bgcolor:(record)?'#18978F':'inherit',
+    margin : "0em 1em 0em 1em",
+  }
   return (
     <>
     <ThemeProvider theme={theme}>
@@ -73,8 +80,8 @@ function App() {
       <Typography variant='h4' marginTop={2} marginBottom={2}>
         FormAtic
       </Typography>
-      <Button color="inherit" size="large" sx={btnSx} onClick={()=>{setRecord(false)}}>HOMEPAGE</Button>
-      <Button color="inherit" size="large" onClick={()=>{setRecord(true)}}>RECORDS</Button>
+      <Button size='large' color="inherit" sx={btnSx} onClick={()=>{setRecord(false)}}>HOMEPAGE</Button>
+      <Button size='large' color="inherit" sx={btnSx2} onClick={()=>{setRecord(true)}}>RECORDS</Button>
       </Toolbar>
       </AppBar>
     {

@@ -18,7 +18,7 @@ function Confirmed({setPage}) {
 }
   return (
     <>
-    <Typography variant='h5' align='center' sx={typoSx}>
+    <Typography variant='h5' align='center' sx={typoSx} fontFamily='Segoe UI'>
       Your submission was successful. Thank you. 
     <CheckCircleOutlineIcon />
     </Typography>

@@ -1,8 +1,12 @@
-import React from 'react';
+import { React, useState } from 'react';
 import {TextField , Typography, Grid, Button, Box } from '@mui/material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import styles from '../styles/Form1.module.css';
 
+
 function Personalinfo({incPage, data, setData}) {
+    const[showPassword,setShowPassword] = useState(false);
     const onClick=()=>{
         incPage();
     }
@@ -12,6 +16,12 @@ function Personalinfo({incPage, data, setData}) {
     }
 
     const fldSx2 ={
+        margin : '1em',
+        width : '100%',
+        right:'1rem'
+    }
+
+    const fldSx3={
         margin : '1em',
         width : '100%',
         right:'1rem'
@@ -30,9 +40,17 @@ function Personalinfo({incPage, data, setData}) {
         marginTop : '1rem',
     }
 
+    const btnSx3={
+        bgcolor:'#54BAB9',
+        '&:hover':{
+            bgcolor:'#97D2EC',
+        },
+        margin : '1.5rem 1rem 1rem 0rem',
+    }
+
   return (
     <form className={styles.formLayout}>
-        <Typography variant='h4' sx={typoSx}>
+        <Typography variant='h4' sx={typoSx} fontFamily='Segoe UI'>
             PERSONAL INFORMATION
         </Typography>
         <Grid container spacing={2}>
@@ -49,6 +67,17 @@ function Personalinfo({incPage, data, setData}) {
         value={data.Address} onChange={(e)=>setData({...data, Address:e.target.value})}/>
         <TextField type='text' id="outlined-basic" label="E-mail*" variant="outlined" sx={fldSx}
         value={data.Email} onChange={(e)=>setData({...data, Email:e.target.value})}/>
+        <Grid container spacing={2}>
+        <Grid item xs={9}>
+        <TextField type={(showPassword)?'text':'password'} id="outlined-basic" label="Set Password*" variant="outlined" sx={fldSx3}
+        value={data.Password} onChange={(e)=>setData({...data, Password:e.target.value})}/>
+        </Grid>
+        <Grid item xs={3}>
+        <Button variant="contained" size="small" sx={btnSx3} onClick={()=>{setShowPassword(!showPassword)}}>
+        {showPassword?(<VisibilityIcon/>):(<VisibilityOffIcon/>)}
+        </Button>
+        </Grid>
+        </Grid>
         <Grid container spacing={2}>
         <Grid item xs={6}>
         <TextField type='text' id="outlined-basic" label="Mobile Number*" variant="outlined" sx={fldSx2} 

@@ -46,7 +46,6 @@ function HomePage({data, setData, postForm, page, setPage}) {
       flexWrap:'wrap',
       alignItems: 'center',
       boxShadow:2,
-      overflow:'scroll',
       minWidth:'350px',
   }
    

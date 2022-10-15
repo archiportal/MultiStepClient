@@ -30,7 +30,7 @@ function Education({decPage,data,setData,incPage}) {
       }
   return (
     <form className={styles.formLayout}>
-        <Typography variant='h4' sx={typoSx}>
+        <Typography variant='h4' sx={typoSx} fontFamily='Segoe UI'>
             EDUCATION DETAILS
         </Typography>
         <TextField type='text' id="outlined-basic" label="Institution Name*" variant="outlined" sx={fldSx} 
