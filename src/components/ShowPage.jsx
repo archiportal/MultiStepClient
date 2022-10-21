@@ -25,7 +25,7 @@ const btnSx={
 }
   return (
     <form className={styles.formLayout}>
-      <Typography variant='h6' sx={typoSx}>
+      <Typography variant='h6' sx={typoSx} fontFamily='Segoe UI'>
         CONFIRMATION PAGE      
       </Typography>
       <Grid container spacing={2}>

@@ -1,6 +1,6 @@
+import {React} from 'react';
 import { Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
 import styles from '../styles/Container.module.css';
 import Record from './Record';
 
@@ -27,7 +27,10 @@ function Records({formData}) {
           <h2>Name : {user.FirstName} {user.LastName}</h2>
           </Box>
           <Box display="flex" justifyContent="center" className={styles.divButton}>
-          <Button variant="contained" size='small'>
+          <Button variant="contained" size='small' sx={{ bgcolor:'#54BAB9',
+        '&:hover':{
+          bgcolor:'#81CACF',
+        }}}>
             View
           </Button>
           </Box>

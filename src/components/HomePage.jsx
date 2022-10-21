@@ -1,4 +1,4 @@
-import {React} from 'react'
+import {React} from 'react';
 import {Box, Grid} from '@mui/material';
 import Personalinfo from './Personalinfo';
 import Education from './Education';
@@ -8,7 +8,7 @@ import SideBar from './SideBar';
 import useWindowSize from '../Hooks/useWindowSize';
 
 
-function HomePage({data, setData, postForm, page, setPage}) {
+function HomePage({page,setPage,data,setData,postForm}) {
   const size = useWindowSize();
   const incPage=()=>{
     setPage((currentPage)=>{
@@ -21,6 +21,7 @@ function HomePage({data, setData, postForm, page, setPage}) {
       return currentPage - 1;
     });
   }
+
 
   const PageDisplay=()=>{
     if(page===0){

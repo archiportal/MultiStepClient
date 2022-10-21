@@ -1,4 +1,4 @@
-import {React,useState,useEffect} from 'react';
+import { React,useState,useEffect } from 'react';
 import {ThemeProvider,createTheme,AppBar,Button,CssBaseline,Toolbar,Typography} from '@mui/material';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import HomePage from './components/HomePage';
@@ -35,6 +35,7 @@ function App() {
         console.log(error);
       }
     },[])
+
     useEffect(()=>{
       console.log(formData);
     },[formData])
@@ -68,6 +69,7 @@ function App() {
     bgcolor:(record)?'#18978F':'inherit',
     margin : "0em 1em 0em 1em",
   }
+
   return (
     <>
     <ThemeProvider theme={theme}>
@@ -86,8 +88,7 @@ function App() {
       </AppBar>
     {
       record?(<Records formData={formData}/>):
-      (<HomePage formData={formData} setFormData={setFormData}
-      data={data} setData={setData} postForm={postForm} page={page} setPage={setPage}/>)
+      (<HomePage page={page} setPage={setPage} data={data} setData={setData} postForm={postForm}/>)
     }
     </ThemeProvider>
     </>
