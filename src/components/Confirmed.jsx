@@ -17,13 +17,13 @@ function Confirmed({setPage}) {
     marginTop : '1rem',
 }
   return (
-    <>
+    <div>
     <Typography variant='h5' align='center' sx={typoSx} fontFamily='Segoe UI'>
       Your submission was successful. Thank you. 
     <CheckCircleOutlineIcon />
     </Typography>
     <Button variant="contained" size='large' sx={btnSx} onClick={clicked}>BACK</Button>
-    </>
+    </div>
   )
 }
 

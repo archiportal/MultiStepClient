@@ -51,7 +51,6 @@ function HomePage({page,setPage,data,setData,postForm}) {
   }
    
   return (
-    <>
     <Grid container spacing={2} >
     <Grid item xs={size.width>700?'3':'0'}>
     {size.width>700 && <SideBar page={page} setPage={setPage} />}
@@ -62,7 +61,6 @@ function HomePage({page,setPage,data,setData,postForm}) {
     </Box>
     </Grid>
     </Grid>
-    </>
   )
 }
 

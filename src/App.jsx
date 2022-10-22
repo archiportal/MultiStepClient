@@ -71,7 +71,6 @@ function App() {
   }
 
   return (
-    <>
     <ThemeProvider theme={theme}>
     <CssBaseline />
     <AppBar position='relative' sx={{
@@ -91,7 +90,6 @@ function App() {
       (<HomePage page={page} setPage={setPage} data={data} setData={setData} postForm={postForm}/>)
     }
     </ThemeProvider>
-    </>
   )
 }
 

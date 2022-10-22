@@ -6,7 +6,6 @@ import DescriptionIcon from '@mui/icons-material/Description';
 
 function SideBar({page, setPage}) {
   return (
-    <>
     <List
       sx={{height:'100vh',width: '100%', maxWidth: 360, bgcolor: 'background.paper', 
       margin:'0.25rem 1rem 1rem 0rem', boxShadow:'2',overflow:'scroll',}}
@@ -45,7 +44,6 @@ function SideBar({page, setPage}) {
         <ListItemText primary="PREVIEW"/>
       </ListItemButton>
     </List>
-    </>
   )
 }
 
