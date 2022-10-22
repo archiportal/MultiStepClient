@@ -21,7 +21,7 @@ function Records({formData}) {
       </Typography>
       {formData.map((user)=>{
         return(
-        <div>
+        <div key={user._id}>
           <div className={styles.divInside}>
           <Box display="flex" justifyContent="center" className={styles.divText}>
           <h2>Name : {user.FirstName} {user.LastName}</h2>
