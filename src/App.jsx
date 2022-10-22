@@ -29,7 +29,7 @@ function App() {
 
     useEffect(()=>{
       try {
-        Axios.get("http://localhost:3001/getForm").then((response)=>{
+        Axios.get("https://multi-step-basic.herokuapp.com/getForm").then((response)=>{
         setFormData(response.data)
       })} catch (error) {
         console.log(error);
@@ -43,7 +43,7 @@ function App() {
     const postForm = () =>{
       // setFormData([...formData,data]);
       try{
-        Axios.post("http://localhost:3001/postForm",data).then((response)=>{
+        Axios.post("https://multi-step-basic.herokuapp.com/postForm",data).then((response)=>{
         setFormData([...formData,data])})
         setData({});
         setPage(page+1);
