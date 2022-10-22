@@ -2,7 +2,6 @@ import {React} from 'react';
 import { Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import styles from '../styles/Container.module.css';
-import Record from './Record';
 
 function Records({formData}) {
   const boxSx = {
