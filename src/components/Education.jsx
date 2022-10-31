@@ -33,35 +33,35 @@ function Education({decPage,data,setData,incPage}) {
         <Typography variant='h4' sx={typoSx} fontFamily='Segoe UI'>
             EDUCATION DETAILS
         </Typography>
-        <TextField type='text' id="outlined-basic" label="Institution Name*" variant="outlined" sx={fldSx} 
+        <TextField type='text' label="Institution Name*" variant="outlined" sx={fldSx} 
         value={data.Institution} onChange={(e)=>setData({...data, Institution:e.target.value})}/>
         <Grid container spacing={2}>
         <Grid item xs={6}>
-        <TextField type='text' id="outlined-basic" label="Course*" variant="outlined" sx={fldSx2}
+        <TextField type='text' label="Course*" variant="outlined" sx={fldSx2}
         value={data.Course} onChange={(e)=>setData({...data, Course:e.target.value})}/>
         </Grid>
         <Grid item xs={6}>
-        <TextField type='text' id="outlined-basic" label="Stream*" variant="outlined" sx={fldSx2} 
+        <TextField type='text' label="Stream*" variant="outlined" sx={fldSx2} 
         value={data.Stream} onChange={(e)=>setData({...data, Stream:e.target.value})}/>
         </Grid>
         </Grid>
         <Grid container spacing={2}>
         <Grid item xs={6}>
-        <TextField type='text' id="outlined-basic" label="Start Date (mm/yyyy)*" variant="outlined" sx={fldSx2} 
+        <TextField type='text' label="Start Date (mm/yyyy)*" variant="outlined" sx={fldSx2} 
         value={data.StartDate} onChange={(e)=>setData({...data, StartDate:e.target.value})}/>
         </Grid>
         <Grid item xs={6}>
-        <TextField type='text' id="outlined-basic" label="End Date (mm/yyyy)" variant="outlined" sx={fldSx2} 
+        <TextField type='text' label="End Date (mm/yyyy)" variant="outlined" sx={fldSx2} 
         value={data.EndDate} onChange={(e)=>setData({...data, EndDate:e.target.value})}/>
         </Grid>
         </Grid>
         <Grid container spacing={2}>
         <Grid item xs={6}>
-        <TextField type='text' id="outlined-basic" label="CGPA*" variant="outlined" sx={fldSx2} 
+        <TextField type='text' label="CGPA*" variant="outlined" sx={fldSx2} 
         value={data.Cgpa} onChange={(e)=>setData({...data, Cgpa:e.target.value})}/>
         </Grid>
         <Grid item xs={6}>
-        <TextField type='text' id="outlined-basic" label="Percentage*" variant="outlined" sx={fldSx2} 
+        <TextField type='text' label="Percentage*" variant="outlined" sx={fldSx2} 
         value={data.Percent} onChange={(e)=>setData({...data, Percent:e.target.value})}/>
         </Grid>
         </Grid>

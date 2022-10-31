@@ -55,21 +55,21 @@ function Personalinfo({incPage, data, setData}) {
         </Typography>
         <Grid container spacing={2}>
         <Grid item xs={6}>
-        <TextField type='text' id="outlined-basic" label="First Name*" variant="outlined" sx={fldSx2}
+        <TextField type='text' label="First Name*" variant="outlined" sx={fldSx2}
         value={data.FirstName} onChange={(e)=>setData({...data, FirstName:e.target.value})} />
         </Grid>
         <Grid item xs={6}>
-        <TextField type='text' id="outlined-basic" label="Last Name*" variant="outlined" sx={fldSx2} 
+        <TextField type='text' label="Last Name*" variant="outlined" sx={fldSx2} 
         value={data.LastName} onChange={(e)=>setData({...data, LastName:e.target.value})}/>
         </Grid>
         </Grid>
-        <TextField type='text' id="outlined-basic" label="Address*" variant="outlined" sx={fldSx}
+        <TextField type='text' label="Address*" variant="outlined" sx={fldSx}
         value={data.Address} onChange={(e)=>setData({...data, Address:e.target.value})}/>
-        <TextField type='text' id="outlined-basic" label="E-mail*" variant="outlined" sx={fldSx}
+        <TextField type='text' label="E-mail*" variant="outlined" sx={fldSx}
         value={data.Email} onChange={(e)=>setData({...data, Email:e.target.value})}/>
         <Grid container spacing={2}>
         <Grid item xs={9}>
-        <TextField type={(showPassword)?'text':'password'} id="outlined-basic" label="Set Password*" variant="outlined" sx={fldSx3}
+        <TextField type={(showPassword)?'text':'password'} label="Set Password*" variant="outlined" sx={fldSx3}
         value={data.Password} onChange={(e)=>setData({...data, Password:e.target.value})}/>
         </Grid>
         <Grid item xs={3}>
@@ -80,11 +80,11 @@ function Personalinfo({incPage, data, setData}) {
         </Grid>
         <Grid container spacing={2}>
         <Grid item xs={6}>
-        <TextField type='text' id="outlined-basic" label="Mobile Number*" variant="outlined" sx={fldSx2} 
+        <TextField type='text' label="Mobile Number*" variant="outlined" sx={fldSx2} 
         value={data.Mobile} onChange={(e)=>setData({...data, Mobile:e.target.value})} />
         </Grid>
         <Grid item xs={6}>
-        <TextField type='text' id="outlined-basic" label="Nationality" variant="outlined" sx={fldSx2} 
+        <TextField type='text' label="Nationality" variant="outlined" sx={fldSx2} 
         value={data.Nation} onChange={(e)=>setData({...data, Nation:e.target.value})}/>
         </Grid>
         </Grid>
