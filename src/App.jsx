@@ -3,9 +3,12 @@ import {ThemeProvider,createTheme,AppBar,Button,CssBaseline,Toolbar,Typography} 
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import HomePage from './components/HomePage';
 import Records from './components/Records';
+import AdminLogin from './components/AdminLogin';
 import Axios from 'axios';
+import {Routes, Route, useNavigate} from 'react-router-dom';
 
 function App() {
+  const navigate = useNavigate();
   const[page,setPage] = useState(0);
   const[record,setRecord]=useState(false);
   const[formData,setFormData] = useState([])
@@ -51,6 +54,16 @@ function App() {
         console.log(error);
       }
     }
+
+    const navigateToHome = () => {
+      setRecord(false);
+      navigate('/');
+    }
+
+    const navigateToRecords = () => {
+      setRecord(true);
+      navigate('/records');
+    }
     
   const theme = createTheme({
     palette: {
@@ -81,14 +94,19 @@ function App() {
       <Typography variant='h4' marginTop={2} marginBottom={2}>
         FormAtic
       </Typography>
-      <Button size='large' color="inherit" sx={btnSx} onClick={()=>{setRecord(false)}}>HOMEPAGE</Button>
-      <Button size='large' color="inherit" sx={btnSx2} onClick={()=>{setRecord(true)}}>RECORDS</Button>
+      <Button size='large' color="inherit" sx={btnSx} onClick={navigateToHome}>HOMEPAGE</Button>
+      <Button size='large' color="inherit" sx={btnSx2} onClick={navigateToRecords}>RECORDS</Button>
       </Toolbar>
       </AppBar>
-    {
+    {/* {
       record?(<Records formData={formData}/>):
       (<HomePage page={page} setPage={setPage} data={data} setData={setData} postForm={postForm}/>)
-    }
+    } */}
+    <Routes>
+      <Route path='/' element={<HomePage page={page} setPage={setPage} data={data} setData={setData} postForm={postForm}/>} />
+      <Route path='/records' element={<Records formData={formData}/>} />
+      <Route path='/login' element={<AdminLogin />} />
+    </Routes>
     </ThemeProvider>
   )
 }
