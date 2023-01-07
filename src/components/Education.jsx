@@ -47,12 +47,16 @@ function Education({decPage,data,setData,incPage}) {
         </Grid>
         <Grid container spacing={2}>
         <Grid item xs={6}>
-        <TextField type='text' label="Start Date (mm/yyyy)*" variant="outlined" sx={fldSx2} 
+        <label> Enter Start Date :
+        <TextField type='date' variant="outlined" sx={fldSx2} 
         value={data.StartDate} onChange={(e)=>setData({...data, StartDate:e.target.value})}/>
+        </label>
         </Grid>
         <Grid item xs={6}>
-        <TextField type='text' label="End Date (mm/yyyy)" variant="outlined" sx={fldSx2} 
+        <label> Enter End Date :
+        <TextField type='date' variant="outlined" sx={fldSx2} 
         value={data.EndDate} onChange={(e)=>setData({...data, EndDate:e.target.value})}/>
+        </label>
         </Grid>
         </Grid>
         <Grid container spacing={2}>

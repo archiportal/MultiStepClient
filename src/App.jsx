@@ -32,7 +32,7 @@ function App() {
 
     useEffect(()=>{
       try {
-        Axios.get("https://multi-step-basic.herokuapp.com/getForm").then((response)=>{
+        Axios.get("https://formatic.onrender.com/getForm").then((response)=>{
         setFormData(response.data)
       })} catch (error) {
         console.log(error);
@@ -46,7 +46,7 @@ function App() {
     const postForm = () =>{
       // setFormData([...formData,data]);
       try{
-        Axios.post("https://multi-step-basic.herokuapp.com/postForm",data).then((response)=>{
+        Axios.post("https://formatic.onrender.com/postForm",data).then((response)=>{
         setFormData([...formData,data])})
         setData({});
         setPage(page+1);
